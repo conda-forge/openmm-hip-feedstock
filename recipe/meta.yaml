@@ -58,6 +58,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - peastman
     - mikemhenry
     - zklaus
     - hmacdope

@@ -2,22 +2,29 @@
 
 set -xeuo pipefail
 
-cd openmm-hip
+CMAKE_FLAGS="${CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=${HOME}/openmm -DCMAKE_BUILD_TYPE=Release"
+CMAKE_FLAGS+=" -DBUILD_TESTING=OFF -DOPENMM_BUILD_HIP_LIB=ON"
 
-mkdir build
-pushd build
+if [[ "$target_platform" == linux* ]]; then
+    MINIMAL_CFLAGS+=" -O3 -ldl"
+    CFLAGS+=" $MINIMAL_CFLAGS"
+    CXXFLAGS+=" $MINIMAL_CFLAGS"
+fi
 
-cmake ${CMAKE_ARGS} \
-    -DCMAKE_MODULE_PATH:PATH=$PREFIX/lib/cmake/hip \
-    -DOPENMM_DIR:PATH=${PREFIX} \
-    -DOPENMM_SOURCE_DIR:PATH=${SRC_DIR}/openmm \
-    ..
+# Build in subdirectory and install.
+mkdir -p build
+cd build
+cmake ${CMAKE_FLAGS} ${SRC_DIR}
+make -j$CPU_COUNT
+make -j$CPU_COUNT install
 
-make -j${CPU_COUNT}
+# Copy the HIP files into the conda environment.
+mkdir -p ${PREFIX}/lib/plugins
+mkdir -p ${PREFIX}/include/openmm
+cp ${HOME}/openmm/lib/plugins/*HIP* ${PREFIX}/lib/plugins
+cp -R ${HOME}/openmm/include/openmm/hip ${PREFIX}/include/openmm
 
-make install
-
-# # Fix some overlinking warnings/errors
-# for lib in ${PREFIX}/lib/plugins/libOpenMM*HIP*${SHLIB_EXT}; do
-#     ln -s $lib ${PREFIX}/lib/$(basename $lib) || true
-# done
+# Fix some overlinking warnings/errors
+for lib in ${PREFIX}/lib/plugins/*${SHLIB_EXT}; do
+    ln -s $lib ${PREFIX}/lib/$(basename $lib) || true
+done

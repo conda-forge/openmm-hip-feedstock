@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/openmm/{{ name }}.git
+  git_url: https://github.com/openmm/openmm.git
   git_rev: "fed44c5"
 
 build:
@@ -27,8 +27,8 @@ requirements:
     - hipcc
     - rocm-cmake
     - rocm-device-libs
-#  run:
-#    - {{ pin_compatible("openmm", max_pin="x.x.x") }}
+  run:
+    - {{ pin_compatible("openmm", max_pin="x.x.x") }}
 
 about:
   home: https://openmm.org

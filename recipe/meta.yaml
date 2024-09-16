@@ -1,5 +1,5 @@
 {% set name = "openmm-hip" %}
-{% set version = "8.1.1" %}
+{% set version = "8.2.0beta" %}
 
 package:
   name: {{ name|lower }}

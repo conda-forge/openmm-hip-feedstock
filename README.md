@@ -7,9 +7,9 @@ Home: https://openmm.org
 
 Package license: LGPL-3.0-or-later AND MIT
 
-Summary: Openmm-hip plugin
+Summary: Openmm-HIP plugin
 
-Development: https://github.com/StreamHPC/openmm-hip
+Development: https://github.com/openmm/openmm
 
 This plugin adds HIP platform that allows to run OpenMM on CDNA and RDNA AMD GPUs on AMD ROCm open software platform.
 
@@ -169,5 +169,7 @@ Feedstock Maintainers
 
 * [@ex-rzr](https://github.com/ex-rzr/)
 * [@hmacdope](https://github.com/hmacdope/)
+* [@mikemhenry](https://github.com/mikemhenry/)
+* [@peastman](https://github.com/peastman/)
 * [@zklaus](https://github.com/zklaus/)
 

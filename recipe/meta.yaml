@@ -27,7 +27,8 @@ requirements:
     - hipcc
     - rocm-cmake
     - rocm-device-libs
-    - openmm {{ version }}
+    - openmm
+    #- openmm {{ version }}
   run:
     - {{ pin_compatible("openmm", max_pin="x.x.x") }}
 

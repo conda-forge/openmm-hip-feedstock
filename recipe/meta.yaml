@@ -39,10 +39,9 @@ about:
     This plugin adds HIP platform that allows to run OpenMM on CDNA and RDNA AMD GPUs on AMD ROCm open software platform.
   license: LGPL-3.0-or-later AND MIT
   license_file:
-    - openmm-hip/licenses/MIT.txt
-    - openmm-hip/licenses/GPL.txt
-    - openmm-hip/licenses/LGPL.txt
-    - openmm-hip/licenses/MIT-VkFFT.txt
+    - docs-source/licenses/Licenses.txt
+    - docs-source/licenses/LGPL.txt
+    - docs-source/licenses/GPL.txt
   dev_url: https://github.com/openmm/openmm
 
 extra:

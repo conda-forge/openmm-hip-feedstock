@@ -56,14 +56,14 @@ Current release info
 Installing openmm-hip
 =====================
 
-Installing `openmm-hip` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `openmm-hip` from the `conda-forge/label/openmm_rc` channel can be achieved by adding `conda-forge/label/openmm_rc` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/openmm_rc
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `openmm-hip` can be installed with `conda`:
+Once the `conda-forge/label/openmm_rc` channel has been enabled, `openmm-hip` can be installed with `conda`:
 
 ```
 conda install openmm-hip
@@ -78,26 +78,26 @@ mamba install openmm-hip
 It is possible to list all of the versions of `openmm-hip` available on your platform with `conda`:
 
 ```
-conda search openmm-hip --channel conda-forge
+conda search openmm-hip --channel conda-forge/label/openmm_rc
 ```
 
 or with `mamba`:
 
 ```
-mamba search openmm-hip --channel conda-forge
+mamba search openmm-hip --channel conda-forge/label/openmm_rc
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search openmm-hip --channel conda-forge
+mamba repoquery search openmm-hip --channel conda-forge/label/openmm_rc
 
 # List packages depending on `openmm-hip`:
-mamba repoquery whoneeds openmm-hip --channel conda-forge
+mamba repoquery whoneeds openmm-hip --channel conda-forge/label/openmm_rc
 
 # List dependencies of `openmm-hip`:
-mamba repoquery depends openmm-hip --channel conda-forge
+mamba repoquery depends openmm-hip --channel conda-forge/label/openmm_rc
 ```
 
 

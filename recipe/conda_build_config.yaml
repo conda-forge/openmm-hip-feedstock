@@ -1,0 +1,6 @@
+channel_sources:
+- conda-forge/label/openmm_rc,conda-forge
+channel_targets:
+- conda-forge openmm_rc
+c_stdlib_version:   # [linux]
+  - 2.17            # [linux]

@@ -12,3 +12,4 @@ fi
 if [[ ! -f ${PREFIX}/lib/plugins/libOpenMMRPMDHIP.so ]]; then
     exit 1
 fi
+python -c "from openmm import *; assert \"$PKG_VERSION\".startswith(Platform.getOpenMMVersion())"
